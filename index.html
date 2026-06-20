@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Surprise Untuk Dinda ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#ffe4ec,#fff6e5);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.card{
+    background:white;
+    width:100%;
+    max-width:500px;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+    text-align:center;
+}
+
+h1{
+    margin-bottom:15px;
+}
+
+p{
+    margin-bottom:15px;
+    color:#555;
+  
+}
+
+input{
+    width:100%;
+    padding:12px;
+    border:2px solid #ddd;
+    border-radius:10px;
+    margin-bottom:15px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    background:#ff6fa8;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+button:hover{
+    opacity:.9;
+}
+
+.hidden{
+    display:none;
+}
+
+.success{
+    color:green;
+    margin-top:10px;
+}
+
+.error{
+    color:red;
+    margin-top:10px;
+}
+
+video{
+    width:100%;
+    border-radius:15px;
+    margin-top:15px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <!-- STEP 1 -->
+    <div id="step1">
+        <h1>🔐 Tahap 1</h1>
+        <p>kode pertama nya apa hayo</p>
+
+        <input type="text" id="kode1" placeholder="Kode pertama">
+        <button onclick="cekKode1()">Lanjut</button>
+
+        <p id="msg1"></p>
+    </div>
+
+    <!-- STEP 2 -->
+    <div id="step2" class="hidden">
+        <h1>🔑 Tahap 2</h1>
+        <p>Yang kedua apa si</p>
+
+        <input type="text" id="kode2" placeholder="Kode kedua">
+        <button onclick="cekKode2()">Lanjut</button>
+
+        <p id="msg2"></p>
+    </div>
+
+    <!-- STEP 3 -->
+    <div id="step3" class="hidden">
+        <h1>❤️ Tahap 3</h1>
+        <p>Kapan pertama kali kita bertemu?awas kalo ga inget</p>
+
+        <input type="text" id="jawaban" placeholder="Contoh: 23 Juni 2026">
+        <button onclick="cekJawaban()">Buka Surprise</button>
+
+        <p id="msg3"></p>
+    </div>
+
+    <!-- HALAMAN AKHIR -->
+    <div id="surprise" class="hidden">
+        <h1>🎉 Selamat Ulang Tahun Dinda 🎉</h1>
+
+        <p>
+            Hai sayang ❤️<br><br>
+
+            selamat ulang tahun yaaa,berarti tahun ini umur 24,udah makin tua dikurangin marah marahnya,
+            jangan terlalu banyak makan pedes,banyakin minum air putih.
+
+            Terima kasih sudah hadir dalam hidupku.
+            Semoga semua harapanmu tahun ini tercapai.
+
+            Aku sayang kamu. 💕
+        </p>
+        
+        <!-- GANTI VIDEO NANTI -->
+        <video controls>
+            <source src="video-ultah.mp4" type="video/mp4">
+            Browser kamu tidak mendukung video.
+        </video>
+
+    </div>
+
+</div>
+
+<script>
+
+function cekKode1(){
+    let kode = document.getElementById("kode1").value.trim();
+
+    if(kode === "13MWP26"){
+        document.getElementById("step1").classList.add("hidden");
+        document.getElementById("step2").classList.remove("hidden");
+    }else{
+        document.getElementById("msg1").innerHTML="❌ Kode salah";
+        document.getElementById("msg1").className="error";
+    }
+}
+
+function cekKode2(){
+    let kode = document.getElementById("kode2").value.trim();
+
+    if(kode === "A6R5"){
+        document.getElementById("step2").classList.add("hidden");
+        document.getElementById("step3").classList.remove("hidden");
+    }else{
+        document.getElementById("msg2").innerHTML="❌ Kode salah";
+        document.getElementById("msg2").className="error";
+    }
+}
+
+function cekJawaban(){
+    let jawaban = document.getElementById("jawaban").value.trim().toLowerCase();
+
+    if(jawaban === "25 januari 2026"){
+        document.getElementById("step3").classList.add("hidden");
+        document.getElementById("surprise").classList.remove("hidden");
+    }else{
+        document.getElementById("msg3").innerHTML="❌ Jawaban belum tepat";
+        document.getElementById("msg3").className="error";
+    }
+}
+
+</script>
+
+</body>
+</html>
